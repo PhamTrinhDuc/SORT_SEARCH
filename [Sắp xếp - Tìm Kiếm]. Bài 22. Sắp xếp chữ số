@@ -1,0 +1,24 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include<set>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n ; cin >> n ; 
+    int a[n] ; 
+    set<int> se ; 
+    for(int &x : a ) cin >> x ; 
+    for(int x :a  ){
+        while(x){
+            se.insert(x%10) ; 
+            x/=10 ; 
+        }
+    }
+    for(int x : se ) cout << x << ' ' ;
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
