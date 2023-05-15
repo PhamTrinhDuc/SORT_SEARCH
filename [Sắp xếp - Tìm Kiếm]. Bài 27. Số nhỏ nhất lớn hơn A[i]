@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    int n ; cin >> n ; 
+    int a[n] ; 
+    for(int &x : a )  cin >> x ; 
+    vector<int> v(a , a+n ) ;
+    map<int,int> mp ; 
+    sort(a , a +n ) ; 
+    for(int i=0 ; i<n-1 ; i++ ){
+        auto it = upper_bound(a ,a+n , a[i]) ; 
+        mp[a[i]] = *it ;  
+    }
+    mp[a[n-1]] = 0 ; 
+    for(int x :  v ){
+        if(mp[x] != 0 ) cout << mp[x] <<' ' ; 
+        else cout <<"_ "; 
+    }
+    /*Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
