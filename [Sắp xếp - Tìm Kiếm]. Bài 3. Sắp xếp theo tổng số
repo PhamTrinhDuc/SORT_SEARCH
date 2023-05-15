@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int tcs(int n ){
+    int sum = 0; 
+    while(n){
+        sum += n%10 ; 
+        n/=10 ; 
+    }
+    return sum ; 
+}
+
+bool cmp(int x , int y ){
+    if(tcs(x) != tcs(y))
+        return tcs(x)  < tcs(y) ;  
+    return x < y  ; 
+}
+int main() {
+    int n ; cin >> n ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    sort(a , a+n , cmp ) ; 
+    for(int x : a ) cout << x << ' ' ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
