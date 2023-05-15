@@ -1,0 +1,36 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include<set> 
+#include<map>
+using namespace std;
+
+
+int main() {
+    int n , m ; cin >> n >> m ; 
+    int a[n] , b [m ] ;
+    set<int> se ; 
+    map<int,int > mp ; 
+    for( int &x : a ){
+        cin >> x ;  mp[x] = 1 ; 
+        se.insert(x)  ; 
+    }
+    for( int &x : b ) {
+        cin >> x ; mp[x] = 2 ; 
+        se.insert(x) ; 
+    }
+    for(int x : a ){
+        if(mp[x] !=1 ) {
+            cout << x << ' ' ; 
+            mp[x] = 3 ; 
+        }
+    }
+    cout << endl ; 
+    for(int x : se ){
+        cout << x << ' ' ; 
+    }
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
