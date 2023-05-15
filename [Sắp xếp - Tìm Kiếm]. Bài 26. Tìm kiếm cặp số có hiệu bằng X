@@ -1,0 +1,36 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int bs(int a[] ,int n , int l , int r , int k ){
+    while(l<=r){
+        int m = (l+r) /2 ; 
+        if( a[m]==k ) {
+           return true ; 
+        }
+        else if(a[m] > k ) 
+            l = m + 1 ; 
+        else 
+            r = m -1 ; 
+    }
+    return false ; 
+}
+
+int main() {
+    int n , k ; cin >> n >> k ; 
+    int a[n] ;
+    for(int &x : a ) cin >> x ; 
+    sort(a , a+n , greater<int>()) ; 
+    int ok = 0 ; 
+    for(int i=0 ; i<n ; i++){
+        if(bs(a, n, i+1, n-1, a[i]-k ) ){
+            ok = 1 ; 
+        }
+    }
+    if(ok==0) cout << -1 ; 
+    else cout << 1 ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
