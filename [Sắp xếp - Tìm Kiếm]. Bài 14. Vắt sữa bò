@@ -1,0 +1,24 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n ; cin >> n ; 
+    int a[n] ;
+    for(int &x : a ) cin >> x ; 
+    sort(a , a+n , greater<int>()) ; 
+    long long cnt =0 , sum = a[0] ;
+    for(int i=1 ; i<n ; i++ ){
+        cnt++ ; 
+        if(a[i] - cnt > 0 ){
+            sum += a[i] - cnt ; 
+        }
+    }
+    cout << sum ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
