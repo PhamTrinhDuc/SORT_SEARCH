@@ -1,0 +1,33 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int n , k ; cin >> n >> k ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    auto it1 = lower_bound(a , a+n , k ) ; 
+    if(*it1 == k ) cout << it1 - a << endl ; 
+    else cout << -1 << endl; 
+    
+    auto it2 = upper_bound(a , a+n , k ) ; 
+    it2-- ; 
+    if(*it2 == k ) cout << it2 - a << endl ; 
+    else cout << -1 << endl ; 
+    
+    auto  it3 = lower_bound(a , a+n , k ) ; 
+    if(it3 != a+n )
+        cout << it3 - a  << endl ; 
+    else cout << -1 << endl ; 
+    
+    auto it4 = upper_bound(a , a+n , k ) ; 
+    if(it4 != a+n ) cout << it4 - a << endl ; 
+    else cout << -1 << endl ; 
+    
+    cout << it2 - it1 + 1 << endl ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
