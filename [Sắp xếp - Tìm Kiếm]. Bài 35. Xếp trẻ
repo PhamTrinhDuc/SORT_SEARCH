@@ -1,0 +1,28 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+#define ll long long 
+
+int main() {
+    int n , s ; cin >> n>>  s ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    sort(a , a+n ) ; 
+    int l = 0 , r = n-1  , dem = 0 ; 
+    while(l<=r ){
+        if(a[l] + a[r] <= s ){
+            dem++ ; 
+            l++ ; r-- ; 
+        } 
+        else{
+            r-- ; dem++ ; 
+        }
+    }
+    cout << dem  ; 
+    
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
