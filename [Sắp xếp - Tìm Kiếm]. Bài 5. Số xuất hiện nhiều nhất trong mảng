@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    int n ; cin >> n ; 
+    int a[n] ;
+    map<int,int> mp ;
+    for(int &x : a ) {
+        cin >> x ; 
+        mp[x]++ ; 
+    }
+    
+    int res = -1  , val = 0 ; 
+    for(int i=0 ; i<n ;i++ ){
+        if(mp[a[i]] > res ){
+            res = mp[a[i]] ; 
+            val = a[i] ; 
+        }
+        else if(mp[a[i]] == res && a[i] < val ){
+            val = a[i] ; 
+        }
+    } 
+    cout << val << ' ' << res ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
