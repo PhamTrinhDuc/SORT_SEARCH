@@ -1,0 +1,22 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+bool cmp(int x , int y ){
+    if(x!=0 && y==0 ) 
+        return x > y ;
+    return false ; 
+}
+
+int main() {
+    int n ; cin >> n ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    stable_sort(a,a+n,cmp ) ; 
+    for(int x : a ) cout << x << ' ' ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
