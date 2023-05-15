@@ -1,0 +1,36 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+#define ll long long 
+int n , k  , a[200005] ; 
+
+bool check(ll x ){
+    ll sum = 0 ; 
+    for(int i=0 ; i<n ; i++ ){
+        sum += x / a[i] ; 
+    }
+    return sum >= k ;  
+}
+int main() {
+    cin >> n >> k  ; 
+    ll min_val = 1e9 ; 
+    for(int i=0 ; i<n ;i++ ) {
+        cin >> a[i] ; 
+        min_val = min(min_val  , 1ll*a[i]) ; 
+    }
+    ll l = 0 , r = 1ll*k*min_val  , ans  ;  // k * (*min_element(a , a+n)) ;
+    while(l<=r){
+        ll m = (l + r ) / 2  ; 
+        if(check(m)){
+            ans = m ; 
+            r =m - 1 ; 
+        }
+        else l = m + 1 ; 
+    }
+    cout << ans ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
