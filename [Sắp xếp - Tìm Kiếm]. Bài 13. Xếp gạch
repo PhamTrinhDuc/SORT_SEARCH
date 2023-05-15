@@ -1,0 +1,25 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n ; cin >> n ; 
+    int a[n]  ; 
+    for(int &x : a ) cin >> x ; 
+    sort(a , a+n , greater<int>()) ; 
+    int cnt = 1  , res=a[0] ;  
+    for(int i=1 ; i<n ;i++ ){
+        if(res<=0){
+            break;
+        }
+        cnt++;
+        res = min(res-1 , a[i] ) ; 
+    }
+    cout << cnt ;
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
