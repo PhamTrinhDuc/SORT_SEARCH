@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long 
+
+int main() {
+    int n , k ; cin >> n >> k  ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    map<int,int> mp ; 
+    ll cnt = 0  , res = 0 ; 
+    int l = 0 ; 
+    for(int r =0 ;  r<n ; r++ ){
+        mp[a[r]]++ ; 
+        if(mp[a[r]] == 1 ) cnt ++ ; 
+        while(cnt > k ){
+            if(mp[a[l]] == 1) cnt-- ; 
+            mp[a[l]]-- ; l++ ; 
+        }
+        res += r - l + 1  ;  
+    }
+    cout << res ; 
+}
