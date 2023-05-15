@@ -1,0 +1,35 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std; 
+int bs(int a[] , int n , int l , int r  ,int k ){
+    int  res = -1 ; 
+    while(l<=r){
+        int m = (l+r) /2 ; 
+        if(a[m] < k ) {
+            res = m ; 
+            l = m + 1 ; 
+        }
+        else  
+             r = m -1 ; 
+    }
+    return res ; 
+}
+
+int main() {
+    int n , k ; cin >> n >> k ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    sort(a, a+n ) ; 
+    long long cnt = 0 ; 
+    for(int i=0 ; i<n ; i++ ){
+        int idx = bs(a,n,i+1,n-1,k-a[i]) ; 
+        if(idx != -1){
+           cnt += idx - i ; 
+        }
+    }
+    cout << cnt ; 
+    
+}
