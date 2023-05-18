@@ -1,0 +1,25 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n , s ; cin >> n >> s ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    long long sum = 0 , dem = 0 , l=0 ;  
+    for(int r=0 ; r<n ; r++){
+        sum += a[r] ; 
+        while(sum >= s){
+            dem+= n-r ; 
+            sum -= a[l] ;
+            l++ ; 
+        }
+    }
+    cout << dem ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
