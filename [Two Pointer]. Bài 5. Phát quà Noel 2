@@ -1,0 +1,26 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n , s ; cin >> n >> s ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x  ; 
+    int l = 0 , ans = 1e9 ; 
+    long long sum = 0 ; 
+    for(int r=0 ; r<n ; r++){
+        sum += a[r] ; 
+        while(sum >= s ){
+            ans = min(ans , r-l+1 ) ;
+            sum -= a[l] ; 
+            l++ ; 
+             
+        }
+    }
+    if(ans == 1e9 ) cout << -1 ; 
+    else cout << ans ; 
+}
