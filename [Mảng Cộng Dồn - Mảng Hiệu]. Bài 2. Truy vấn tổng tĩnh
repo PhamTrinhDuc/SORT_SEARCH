@@ -1,0 +1,24 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+long long f[1000001] ; 
+int main() {
+    int n , t ; cin >> n >> t ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    f[0] = a[0] ; 
+    for(int i=1 ; i<n ; i++){
+        f[i] = f[i-1] + a[i] ; 
+    }
+    while(t--){
+        int l ,r ; cin >> l >> r ;
+        if(l==0) cout << f[r] << endl ; 
+        else cout << f[r] - f[l-1] << endl ;  
+    }
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
