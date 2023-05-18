@@ -1,0 +1,46 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct save{
+    int x , y , z ; 
+};
+
+int main() {
+    int n  , q , t ; cin >> n >> q >> t ; 
+    int a[n] , d[n+1] = {0}  ; 
+    long long f[n+1] = {0} ; 
+    for(int &x : a ) cin >> x ; 
+    vector<save> v ; 
+    // xay dung mang hieu 
+    d[0] = a[0] ; 
+    for(int i=1 ; i<n ; i++) d[i] = a[i] - a[i-1] ;
+    
+    // thuc hien thao tac 
+    while(q--){
+        int l , r , k ; cin >> l >> r >> k ; 
+        l-- ; r-- ; 
+        v.push_back({l , r , k }) ; 
+    } 
+    
+    // k truy van tu tt x toi y 
+    while(t--){
+        int x , y ; cin >> x >> y  ; 
+        x-- ; y-- ; 
+        for(int i=x ; i<=y ; i++){
+            d[v[i].x] += v[i].z ; 
+            d[v[i].y + 1] -= v[i].z ; 
+        }
+    }
+    
+    // xay dung lai mang a 
+    f[0] = d[0] ; cout << f[0] << ' ' ; 
+    for(int i=1 ; i<n ; i++) {
+        f[i] = f[i-1] + d[i] ; 
+        cout << f[i] << ' ' ; 
+    }
+    return 0;
+}
