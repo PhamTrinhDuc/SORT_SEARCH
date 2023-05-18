@@ -1,0 +1,31 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n  , q ; cin >> n >> q  ; 
+    int a[n]  , d[n+1] = {0} , f[n+1] = {0} ; 
+    for(int &x : a ) cin >> x ;
+    // xay dung mang hieu 
+    d[0] = a[0]  ; 
+    for(int i=1 ; i<n ; i++){
+        d[i] = a[i] - a[i-1] ; 
+    }
+    while(q--){
+        int l , r , k ; cin >> l >> r >> k ; 
+        d[l] += k ; 
+        d[r+1] -= k ; 
+    }
+    // xay dung mang lai mang a thong qua mang cong don cua mang d 
+    f[0] = d[0] ; 
+    cout << f[0] << ' '  ; 
+    for(int i=1  ; i<n ; i++){
+        f[i] = f[i-1] + d[i] ; 
+        cout << f[i] << ' ' ; 
+    }
+    return 0;
+}
