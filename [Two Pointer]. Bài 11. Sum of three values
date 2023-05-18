@@ -1,0 +1,30 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+bool threesum(int a[] , int n , int k ){
+    sort(a , a+n ) ; 
+    for(int i=0 ; i<n ; i++){
+        int l = i+1 , r = n-1 , res = k - a[i] ; 
+        while(l<=r){
+            if(a[l] + a[r] == res ){
+                return true ; 
+            }
+            else if(a[l] + a[r] > res ) r-- ; 
+            else l++ ; 
+        }
+    }
+    return false ; 
+}
+
+int main() {
+    int n , k ; cin >> n>> k ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x; 
+    if (threesum(a , n , k )) cout <<"YES" ; 
+    else cout <<"NO"  ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
