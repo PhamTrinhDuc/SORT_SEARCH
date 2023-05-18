@@ -1,0 +1,25 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n , k ; cin >> n >> k ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x; 
+    long long cnt = 0 , sum =  0 , l = 0 ; 
+    for(int r = 0 ; r<n ; r++ ){
+        sum+= a[r] ; 
+        while(sum > k ){
+            sum-= a[l] ; 
+            l++ ; 
+        }
+        cnt += r-l+1 ; 
+    }
+    cout << cnt ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
