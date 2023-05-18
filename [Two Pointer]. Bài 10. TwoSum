@@ -1,0 +1,27 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n , k ; cin >> n >> k ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    int i=0 , j=n-1 ;
+    sort(a , a+n ) ; 
+    while(i<j){
+        int sum = a[i] + a[j] ; 
+        if(sum == k ){
+            cout << "YES" ; 
+            return 0 ; 
+        }
+        else if (sum > k ) j-- ; 
+        else i++ ; 
+    }
+    cout <<"NO" ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
