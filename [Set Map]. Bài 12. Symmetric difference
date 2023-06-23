@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    int n , m; cin >> n >> m ; 
+    int a[n] , b[m] ; 
+    map<int,int> mp ;
+    for(int &x : a ) {
+        cin >> x ; 
+        mp[x] = 1 ; 
+    }
+    vector<int> v(a , a+n ) ; 
+    for(int &x : b ){
+        cin >> x ; 
+        mp[x] = 2 ; 
+    }
+    set<int> se ;  
+    for(int x : a ){
+        if(mp[x] == 1 ){
+            se.insert(x) ; 
+        }
+        else mp[x] = 3 ;
+    }
+    for(int &x : b ){
+        if(mp[x] == 2 ) se.insert(x); 
+    }
+    for(int x : se ) cout << x << ' ' ; 
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
