@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    int n ; cin >> n ; 
+    int a[n] ;
+    multiset<int> ms ; 
+    for(int &x : a ) {
+        cin >> x ; ms.insert(x) ; 
+    }
+    int t ; cin >> t ; 
+    while(t--){
+        int tt , x ; cin >> tt >> x ; 
+        if(tt==1) ms.insert(x) ; 
+        else if(tt==2){
+            auto it = ms.find(x) ; 
+            if(ms.find(x) != ms.end()) ms.erase(it) ; 
+        }
+        else {
+            if(ms.find(x) != ms.end()) cout <<"YES" << endl ; 
+            else cout <<"NO" << endl ; 
+        }
+    }
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
