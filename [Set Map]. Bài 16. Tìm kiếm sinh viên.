@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct sv{
+    string ma , ten ;
+    sv(string ma , string ten ){
+        this->ten = ten ; 
+        this->ma = ma ; 
+    }
+};
+
+int main() {
+    int t; cin >> t ; 
+    vector<sv>v ; 
+    cin.ignore() ; 
+    while(t--){
+        string ten , ma ; 
+        getline(cin , ma) ; 
+        getline(cin , ten) ; 
+        v.push_back(sv(ma , ten) ) ; 
+    }
+    int k ; cin >> k ; 
+    while(k--){
+        string ma ; cin >> ma ; 
+        int ok = 0 ; 
+        for(sv x : v ){
+            if(x.ma == ma ){
+                ok = 1 ; 
+                cout << x.ten << endl ; 
+            }
+        }
+        if(ok==0) cout <<"NOT FOUND" << endl ; 
+    }
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
