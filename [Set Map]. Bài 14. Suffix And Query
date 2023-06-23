@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int f[1000005] ; 
+int main() {
+    int n ; cin >> n ; 
+    int a[n] ; 
+    for(int &x : a ) cin >> x ; 
+    set<int> se ; 
+    for(int i=n-1 ; i>=0 ; i-- ){
+        se.insert(a[i]); 
+        f[i] = se.size() ; 
+    }
+    int q ; cin >> q ; 
+    while(q--){
+        int l ; cin >> l  ; 
+        cout << f[l] << endl; 
+    }
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
