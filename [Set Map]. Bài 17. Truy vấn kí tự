@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+    string s ; cin >> s ; 
+    map<char,int> mp ; 
+    set<char> se ; 
+    for(char x : s ){
+       mp[x]++ ; se.insert(x) ; 
+    }
+    char val1  , val2  ; 
+    int idx1 = -1e9 , idx2 = 1e9 ; 
+    for(auto it : mp ){
+       if(it.second > idx1 ){
+           idx1 = it.second ; 
+           val1 = it.first ; 
+       }
+       else if (it.second >= idx1 && it.first < val1 )
+           val1 = it.first ; 
+       if(it.second < idx2 ){
+           idx2 = it.second ; 
+           val2 = it.first ; 
+       }
+       else if (it.second <= idx2 && it.first > val2 )
+           val2 = it.first ; 
+    }
+    cout << val1 <<' '<<idx1 << endl ; 
+    cout << val2 <<' '<<idx2 << endl ; 
+    cout << se.size() ;
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
